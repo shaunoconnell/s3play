@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: 7003961daf851db6e722e76099be50ba72982032
+  specs:
+    paperclip (2.3.10)
+      activerecord (>= 2.3.0)
+      activesupport (>= 2.3.2)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -29,6 +37,10 @@ GEM
       activesupport (= 3.0.5)
     activesupport (3.0.5)
     arel (2.0.9)
+    aws-s3 (0.6.2)
+      builder
+      mime-types
+      xml-simple
     builder (2.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
@@ -64,10 +76,13 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.25)
+    xml-simple (1.0.15)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-s3
+  paperclip!
   rails (= 3.0.5)
   sqlite3

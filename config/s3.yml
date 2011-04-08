@@ -1,0 +1,14 @@
+development:
+    bucket: dev.music
+    access_key_id: <%= ENV['AMAZON_ACCESS_KEY_ID'] %>
+    secret_access_key: <%= ENV['AMAZON_SECRET_ACCESS_KEY'] %>
+
+test:
+    bucket: test.music
+    access_key_id: <%= ENV['AMAZON_ACCESS_KEY_ID'] %>
+    secret_access_key: <%= ENV['AMAZON_SECRET_ACCESS_KEY'] %>
+
+production:
+    bucket: production.music
+    access_key_id: <%= ENV['AMAZON_ACCESS_KEY_ID'] %>
+    secret_access_key: <%= ENV['AMAZON_SECRET_ACCESS_KEY'] %>

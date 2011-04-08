@@ -1,4 +1,7 @@
 S3play::Application.routes.draw do
+  
+  resources :songs
+
   # get "home/index"
 
   # The priority is based upon order of creation:

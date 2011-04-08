@@ -7,6 +7,15 @@ gem 'rails', '3.0.5'
 
 gem 'sqlite3'
 
+# gem 'aws-s3'
+
+gem 'aws-s3', :require => 'aws/s3'
+gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
+
+# gem 'paperclip', '2.3.0'
+# gem 'right_aws'  #paperclip with aws needs this jazz
+
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
