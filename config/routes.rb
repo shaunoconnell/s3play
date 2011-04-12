@@ -1,6 +1,10 @@
 S3play::Application.routes.draw do
   
-  resources :songs
+  resources :songs do
+  	member do
+    	get 'music'
+  	end
+  end
 
   # get "home/index"
 

@@ -6,7 +6,7 @@
       $("#jquery_jplayer_1").jPlayer({
         ready: function () {
           $(this).jPlayer("setMedia", {
-          	mp3: "/songs/song.mp3"
+          	mp3: "/songs/<%=@song.id%>/music/"
           });
         },
         swfPath: "/javascripts/player",

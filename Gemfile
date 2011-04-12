@@ -14,6 +14,10 @@ gem 'jquery-rails', '>= 0.2.6'
 gem 'aws-s3', :require => 'aws/s3'
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 
+gem "mongoid", "~> 2.0"
+gem "bson_ext", "~> 1.2"
+
+
 # gem 'paperclip', '2.3.0'
 # gem 'right_aws'  #paperclip with aws needs this jazz
 

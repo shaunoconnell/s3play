@@ -86,4 +86,37 @@ class SongsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def music
+  	puts "id: #{params[:id]}"
+  	@song = Song.find(params[:id])
+  	puts @song
+  	puts " s3 path: #{@song.song_binary.path}"
+  	puts "song.id #{@song.id}"
+  	#TODO catch not found exception
+  	# s3_value = AWS::S3::S3Object.value(@song.song_binary.path,"binary_songs")
+  	# 
+  	# @song.song_binary.stream_to s3_value, "#{Rails.public_path}/#{@song.song_binary.original_filename}"
+  	# 
+  	
+  	path_to_store_file_to = "#{Rails.public_path}/tmpmusic/#{@song.id}"
+  	Dir.mkdir path_to_store_file_to unless Dir.exists? path_to_store_file_to
+  	
+  	open("#{path_to_store_file_to}/#{@song.song_binary.original_filename}", 'wb') do |file|
+     AWS::S3::S3Object.stream(@song.song_binary.path,"binary_songs") do |chunk|
+       file.write chunk
+     end
+   end
+  	
+  	#TODO: consider :type=>audio/mpeg
+  	# send_file "#{Rails.public_path}/songs/song_binaries/2/1-Bloom.mp3", :type=>"audio/mp3",:disposition => 'inline'
+  	
+  	send_file "#{path_to_store_file_to}/#{@song.song_binary.original_filename}", :type=>"audio/mpeg",:disposition => 'inline'
+
+  	
+  	# respond_to do |format|
+  	#     	format.html { render :text=>"sampletest" }
+  	# end
+
+  end
 end

@@ -1,0 +1,21 @@
+defaults: &defaults
+  host: localhost
+
+development:
+  <<: *defaults
+  database: s3play-dev
+
+test:
+  <<: *defaults
+  database: s3play-test
+
+# set these environment variables on your prod server
+production:
+  uri: <%= URI.parse(ENV['DUOSTACK_DB_MONGODB']) %>
+
+localhost_production:
+  host: <%= ENV['MONGOID_HOST'] %>
+  port: <%= ENV['MONGOID_PORT'] %>
+  username: <%= ENV['MONGOID_USERNAME'] %>
+  password: <%= ENV['MONGOID_PASSWORD'] %>
+  database: <%= ENV['MONGOID_DATABASE'] %>
