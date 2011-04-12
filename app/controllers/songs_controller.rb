@@ -103,10 +103,10 @@ class SongsController < ApplicationController
   	Dir.mkdir path_to_store_file_to unless Dir.exists? path_to_store_file_to
   	
   	open("#{path_to_store_file_to}/#{@song.song_binary.original_filename}", 'wb') do |file|
-     AWS::S3::S3Object.stream(@song.song_binary.path,"binary_songs") do |chunk|
-       file.write chunk
-     end
-   end
+     	AWS::S3::S3Object.stream(@song.song_binary.path,"binary_songs") do |chunk|
+       		file.write chunk
+     	end
+   	end
   	
   	#TODO: consider :type=>audio/mpeg
   	# send_file "#{Rails.public_path}/songs/song_binaries/2/1-Bloom.mp3", :type=>"audio/mp3",:disposition => 'inline'
